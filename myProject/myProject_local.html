@@ -34,16 +34,16 @@
 
 				def play_C():
 				    hub.light_matrix.write('C')
-				    motorCD.run_for_degrees(360)
+				    motorCD.run_for_degrees(-360)
 				def play_D():
 				    hub.light_matrix.write('D')
-				    motorCD.run_for_degrees(-360)
+				    motorCD.run_for_degrees(360)
 				def play_E():
 				    hub.light_matrix.write('E')
-				    motorEG.run_for_degrees(360)
+				    motorEG.run_for_degrees(-360)
 				def play_G():
 				    hub.light_matrix.write('G')
-				    motorEG.run_for_degrees(-360)
+				    motorEG.run_for_degrees(360)
 				def play_rest():
 				    hub.light_matrix.write('R')
 				    wait_for_seconds(1)
