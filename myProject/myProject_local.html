@@ -14,10 +14,56 @@
 		<service-spike id="service_spike"></service-spike>
 	</div>
 
+<!--EDITED-->
+
 	<h1>My Project (Local Interface)</h1>
 
-	<!-- CREATE YOUR PROJECT HERE -->
+	<div class="cloud_check">
+		<b><em>Monitor Cloud:</em></b>
 
+	  <div type="cloud_check" cloud_compare="changes" cloud_action="download_code">
+			<input type=text id="cloud_name" value="notes">
+      <input type=text id="cloud_action_val" value="0">
+			<textarea id="cloud_code"># MicroPython for LEGO Hardware (LEGO Education's SPIKE Prime)
+				from spike import PrimeHub, LightMatrix, Motor
+				from spike.control import wait_for_seconds
+
+				motorCD = Motor('D')
+				motorEG = Motor('C')
+				hub = PrimeHub()
+
+				def play_C():
+				    hub.light_matrix.write('C')
+				    motorCD.run_for_degrees(360)
+				def play_D():
+				    hub.light_matrix.write('D')
+				    motorCD.run_for_degrees(-360)
+				def play_E():
+				    hub.light_matrix.write('E')
+				    motorEG.run_for_degrees(360)
+				def play_G():
+				    hub.light_matrix.write('G')
+				    motorEG.run_for_degrees(-360)
+				def play_rest():
+				    hub.light_matrix.write('R')
+				    wait_for_seconds(1)
+
+				note_sequence = 'REPLACE[cloud_current]'
+				for note in note_sequence:
+				    if note == 'C':
+				        play_C()
+				    if note == 'D':
+				        play_D()
+				    if note == 'E':
+				        play_E()
+				    if note == 'G':
+				        play_G()
+				    if note == 'R':
+				        play_rest()</textarea>
+			<input type=text id="cloud_reset" value="">
+    </div>
+
+	</div>
 	<hr>
 
 	<h2>My Project Quick Links:</h2>
