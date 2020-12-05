@@ -203,8 +203,8 @@ function interactiveHTML() {
       if (elem.tagName == "BUTTON") { tmp_value = elem.innerHTML; }
       if (elem.tagName == "INPUT") { tmp_value = elem.value; }
 			if (elem.tagName == "SELECT") { tmp_value = get_parameters_from_select(elem); }
+			if (elem.tagName == "TEXTAREA") { tmp_value = elem.value; }
     }
-		console.log("TMP_VALUE (cloud_value): " + tmp_value);
     // return a params OBJECT data structure
     return {
       action: elem.getAttribute("cloud_action"),
@@ -529,8 +529,12 @@ function interactiveHTML() {
       console.log("ADD ELEMENT FORM ERROR: unknown form type (" + form_type + ")");
     }
   }
-	// adding input element to page: onchange event
+	// adding select element to page: onchange event
   function add_element_select(elem) {
+    elem.onchange = function () { perform_cloud_action(get_parameters(elem)); }
+  }
+	// adding textarea element to page: onchange event
+  function add_element_textarea(elem) {
     elem.onchange = function () { perform_cloud_action(get_parameters(elem)); }
   }
 
@@ -644,6 +648,7 @@ function interactiveHTML() {
       if (tagName == "FORM") { add_element_form(elem); }
       if (tagName == "DIV") { add_element_div(elem); }
 			if (tagName == "SELECT") { add_element_select(elem); }
+			if (tagName == "TEXTAREA") { add_element_textarea(elem); }
     } else {
       console.log("Error: in interactiveHTML.add_element and 'elem is null'")
     }
@@ -704,9 +709,9 @@ function page_setup_convert_HTML() {
 		// - with series of <option cloud_value='XXX'>text</option>
 		// - changing the select box dropdown triggers the action
     iHTML.add_elements(document.querySelectorAll("select[cloud_action=update]"));
-
-    ////// TO ADD:
-    ////// - <textarea>
+		// TYPE #8: <textarea cloud_action="update" ...>
+		// - like button, it's the value of the textarea that becomes the cloud_value
+    iHTML.add_elements(document.querySelectorAll("textarea[cloud_action=update]"));
 
     // setup the cloud-check elements
     // - of the form: <div type="airtable-check" ...>
