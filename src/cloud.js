@@ -523,8 +523,20 @@ function interactiveHTML() {
         for (var i=0; i<input.length; i++) {
           perform_cloud_action(get_parameters(input[i]));
         }
-        return false; // make sure the form doesn't submit
+        return false; // make sure the form doesn't actually submit (go somewhere else)
       }
+		} else if (form_type == "textarea") {
+			// this form has a textarea that should be processed
+			// when the submit button is pressed
+			// (1) get the textarea
+			var input = elem.querySelectorAll("textarea");
+			// (2) perform action on the textarea when submit button pressed (form submitted)
+			elem.onsubmit = function () {
+				for (var i=0; i<input.length; i++) {
+					perform_cloud_action(get_parameters(input[i]));
+				}
+				return false; // make sure the form doesn't actually submit (go somewhere else)
+			}
     } else {
       console.log("ADD ELEMENT FORM ERROR: unknown form type (" + form_type + ")");
     }
@@ -705,13 +717,15 @@ function page_setup_convert_HTML() {
     // - with a <input cloud_action ...> like above (text, range, etc)
     // - and a <input type=submit ...> that triggers the action (vs. on input onchange)
     iHTML.add_elements(document.querySelectorAll("form[cloud_form=input]"));
+		// - or with a <textarea cloud_action...> like in Type #8
+		iHTML.add_elements(document.querySelectorAll("form[cloud_form=textarea]"));
 		// TYPE #7: <select cloud_action="update" ...>
 		// - with series of <option cloud_value='XXX'>text</option>
 		// - changing the select box dropdown triggers the action
     iHTML.add_elements(document.querySelectorAll("select[cloud_action=update]"));
 		// TYPE #8: <textarea cloud_action="update" ...>
 		// - like button, it's the value of the textarea that becomes the cloud_value
-    iHTML.add_elements(document.querySelectorAll("textarea[cloud_action=update]"));
+    iHTML.add_elements(document.querySelectorAll("*:not([cloud_form=textarea]) > textarea[cloud_action=update]"));
 
     // setup the cloud-check elements
     // - of the form: <div type="airtable-check" ...>
