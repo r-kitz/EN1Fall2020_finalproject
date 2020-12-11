@@ -7,7 +7,9 @@
 	  <link rel="stylesheet" href="../src/style.css" />
 		<style>
 		h1 {color:navy;font-family: Helvetica, sans-serif;}
-		h2 {color:navy;font-family: Helvetica, sans-serif;}
+		h2 {color:navy;font-family: Helvetica, sans-serif;font-size: 14px;}
+		h3 {background-color:navy;color:white;font-size: 20px;}
+		h4 {background-color:navy;color:white;font-size: 16px;}
 		p {color:navy;font-family: Helvetica, sans-serif;}
 		button {background-color: #000080;border: none;color: white;font-size: 20px;border-radius: 4px;}
 		</style>
@@ -27,17 +29,17 @@
 
 	<p>This robot plays the xylophone!</p>
 	<p></p>
-	<p>Step 1: Choose a song to see and hear the robot play</p>
-	<p>Once you are ready, create your own song, or try to play one of the challenge songs below!
+	<h3>Step 1:</h3><p> Click on a song to see and hear the robot play</p>
 	<p></p>
-	<p>	Challenge Songs:</p>
-	<p>1. Hot Cross Buns</p>
-	<button cloud_action='update' cloud_name='notes' cloud_value='EDCREDCRCCCCDDDDEDC'>Listen! Hot Cross Buns</button>
-	<p>2. Mary Had a Little Lamb</p>
-	<button cloud_action='update' cloud_name='notes' cloud_value='EDCDEEERDDDREGGREDCDEEEEDDEDC'>Listen! Mary Had a Little Lamb</button>
-  <h2>How to Play:</h2>
-
-  <p>Enter a sequence of notes (using C, D, E, G, or R (for rest)), and press "Play!" when you are ready to hear your song!</p>
+	<button cloud_action='update' cloud_name='notes' cloud_value='EDCREDCRCCCCDDDDEDC'>Hot Cross Buns</button>
+	<button cloud_action='update' cloud_name='notes' cloud_value='EDCDEEERDDDREGGREDCDEEEEDDEDC'>Mary Had a Little Lamb</button>
+  <h3>Step 2:</h3><p> Create your own song</p>
+	<p></p>
+  <p>What notes would you like to play?</p>
+	<p>What order do you want to play the notes in?</p>
+	<h4>Type your notes as CAPTIAL letters from the options below.</h4>
+	<p>'R' means rest!</p>
+	<h2> C  D  E  G  R</h2>
 
   <form cloud_form='input'>
     <input type=text cloud_action='update' cloud_name='notes' value=''>
