@@ -12,7 +12,7 @@
 		h4 {background-color:navy;color:white;font-family: Helvetica, sans-serif;font-size: 18px;}
 		h5 {float:left;text-align:center;padding: 30px 3px;color:black;font-family: Helvetica, sans-serif;font-size: 28px;}
 		p {color:navy;font-family: Helvetica, sans-serif;}
-		button {background-color: #000080;border: none;color: white;font-size: 20px;border-radius: 4px;}
+		button {background-color: #000080;border: 3px solid white;color: white;font-size: 28px;border-radius: 4px;}
 		</style>
 	</head>
   <body style="background-color:lightblue;">
@@ -28,12 +28,11 @@
 	<img src="./img/myproject_remote_xylophoneandmusicstaff.png">
 
 
-	<p>This robot plays the xylophone!</p>
-	<br>
+	<h1>This robot plays the xylophone!</h1>
 	<h3 style="float:left;">&nbsp;Step 1:&nbsp;</h3><p style="color:navy;font-size: 28px;">&nbsp;Click on a song to see and hear the robot play&nbsp;</p>
 	<br>
-	<button style="font-size: 28px;" cloud_action='update' cloud_name='notes' cloud_value='EDCREDCRCCCCDDDDEDC'>Hot Cross Buns</button>
-	<button style="font-size: 28px;" cloud_action='update' cloud_name='notes' cloud_value='EDCDEEERDDDREGGREDCDEEEEDDEDC'>Mary Had a Little Lamb</button>
+	<button cloud_action='update' cloud_name='notes' cloud_value='EDCREDCRCCCCDDDDEDC'>Hot Cross Buns</button>
+	<button cloud_action='update' cloud_name='notes' cloud_value='EDCDEEERDDDREGGREDCDEEEEDDEDC'>Mary Had a Little Lamb</button>
 	<p></p>
 	<h3 style="float:left;clear:left;">&nbsp;Step 2:&nbsp;</h3><p style="color:navy;float:left;clear:right;font-size: 28px;">&nbsp;Create your own song&nbsp;</p>
 	<p></p>
@@ -45,10 +44,10 @@
 	<h5 style="background-color:yellow;">E</h5>
 	<h5 style="background-color:#3399ff;">G</h5>
 	<p style="float:left;">&nbsp;</p>
-	<h5 style="background-color:gray;">R</h5>
-	<p style="clear:both;">&nbsp;('R' means rest!)</p>
-	<p></p>
-	<h4>&nbsp;Click 'Play!' to hear your song!</h4>
+	<h5 style="background-color:gray;color:white;">R</h5>
+	<p style="float:left;">&nbsp;('R' means rest!)</p>
+
+	<h4 style="clear:left;">&nbsp;Click 'Play!' to hear your song!</h4>
 
   <form cloud_form='input'>
     <input style="padding: 5px 5px;font-size: 20px;" type=text cloud_action='update' cloud_name='notes' value=''>
